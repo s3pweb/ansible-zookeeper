@@ -1,0 +1,9 @@
+Server {
+    org.apache.zookeeper.server.auth.DigestLoginModule required
+    user_super="1adminsecret";
+};
+Client {
+    org.apache.zookeeper.server.auth.DigestLoginModule required
+    username="super"
+    password="1adminsecret";
+};

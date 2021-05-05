@@ -48,6 +48,11 @@ autopurge.purgeInterval={{ zookeeper_purge_interval }}
 server.{{ hostvars[host].zookeeper_id }}={{ hostvars[host].ansible_host }}:{{ zookeeper_leader_port }}:{{ zookeeper_election_port }}
 {% endfor %}
 
+requireClientAuthScheme=sasl
+jaasLoginRenew=3600000
+zookeeper.sasl.client.enabled=true
+authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
+
 {% if zookeeper_version is version('3.5', '>=') %}
 # AdminServer
 admin.enableServer={{ zookeeper_enable_server | ternary('true', 'false') }}
