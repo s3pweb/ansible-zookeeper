@@ -1,9 +1,11 @@
 Server {
     org.apache.zookeeper.server.auth.DigestLoginModule required
-    user_super="1adminsecret";
+    user_super="admin-secret";
+    user_kafka="kafka-secret";
 };
-Client {
-    org.apache.zookeeper.server.auth.DigestLoginModule required
-    username="super"
-    password="1adminsecret";
-};
+
+# Client {
+#     org.apache.zookeeper.server.auth.DigestLoginModule required
+#     username="super"
+#     password="admin-secret";
+# };

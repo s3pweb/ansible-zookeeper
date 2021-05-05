@@ -46,12 +46,12 @@ autopurge.purgeInterval={{ zookeeper_purge_interval }}
 # a single unique number, e.g. 1, 2, etc.
 {% for host in zookeeper_servers %}
 server.{{ hostvars[host].zookeeper_id }}={{ hostvars[host].ansible_host }}:{{ zookeeper_leader_port }}:{{ zookeeper_election_port }}
+authProvider.{{ hostvars[host].zookeeper_id }}=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
 {% endfor %}
 
-requireClientAuthScheme=sasl
-jaasLoginRenew=3600000
-zookeeper.sasl.client.enabled=true
-authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
+#requireClientAuthScheme=sasl
+#jaasLoginRenew=3600000
+#zookeeper.sasl.client.enabled=true
 
 {% if zookeeper_version is version('3.5', '>=') %}
 # AdminServer
